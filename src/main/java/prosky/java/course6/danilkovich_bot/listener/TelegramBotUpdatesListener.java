@@ -7,7 +7,6 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import prosky.java.course6.danilkovich_bot.model.NotificationTask;
@@ -25,18 +24,17 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
     private static final Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
     private static final String START = "/start";
     private static final String TEXT = "Для использования бота по назначению, отправьте ему сообщение вида 01.01.2022 20:00 Сделать домашнюю работу ";
-    @Autowired
     private final TelegramBot telegramBot;
     private final NotificationService notificationService;
     private NotificationRepository repository;
     private static String botMessage;
 
 
-    public TelegramBotUpdatesListener(TelegramBot telegramBot, NotificationService notificationService) {
+    public TelegramBotUpdatesListener(TelegramBot telegramBot, NotificationService notificationService, NotificationRepository repository) {
         this.telegramBot = telegramBot;
         this.notificationService = notificationService;
+        this.repository = repository;
     }
-
 
     @PostConstruct
     public void init() {

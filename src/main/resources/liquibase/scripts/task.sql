@@ -10,5 +10,5 @@ create table notification_task
     status            varchar(300) NOT NULL
 );
 alter table notification_task
-owner to student;
+    owner to student;
 

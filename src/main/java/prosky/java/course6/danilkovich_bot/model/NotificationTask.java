@@ -18,10 +18,6 @@ public class NotificationTask {
     private Long chatId;
     @Column(name = "notification_date")
     private LocalDateTime notificationData;
-    // private LocalDateTime sentData;
-
-    //@Enumerated(EnumType.STRING)
-   // private NotificationStatus status = NotificationStatus.SCHEDULED;
 
     public NotificationTask() {
     }
@@ -48,14 +44,6 @@ public class NotificationTask {
         return notificationData;
     }
 
-    // public LocalDateTime getSentData() {
-    //     return sentData;
-    //  }
-
-  //  public NotificationStatus getStatus() {
-    //    return status;
-  //  }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -68,22 +56,9 @@ public class NotificationTask {
         this.chatId = chatId;
     }
 
-  //  public void markAsSent() {
-       // this.status = NotificationStatus.SENT;
-        //   this.sentData = LocalDateTime.now();
-   // }
-
     public void setNotificationData(LocalDateTime notificationData) {
         this.notificationData = notificationData;
     }
-
-    //  public void setSentData(LocalDateTime sentData) {
-    //     this.sentData = sentData;
-    // }
-
-   // public void setStatus(NotificationStatus status) {
-    //    this.status = status;
-  //  }
 
     @Override
     public boolean equals(Object o) {
